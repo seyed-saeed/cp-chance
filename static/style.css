@@ -76,7 +76,7 @@ body::before {
 }
 
 /* ==============================
-   فرم شیشه‌ای گیمینگ
+   فرم شیشه‌ای گیمینگ (مرکز و واکنش‌گرا)
    ============================== */
 .glass-box {
   position: relative;
@@ -86,19 +86,14 @@ body::before {
   backdrop-filter: blur(15px);
   border-radius: 25px;
   padding: 25px 30px;
-  width: 340px;
-  max-width: 85%;
+  width: 90%;
+  max-width: 420px;
+  margin: 0 auto;
   box-shadow: 0 0 25px #0ff, inset 0 0 10px rgba(0,255,0,0.2);
-  transition: all 0.3s ease-in-out;
   animation: fadeIn 0.9s ease, rgbGlow 5s linear infinite;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-}
-
-.glass-box:hover {
-  transform: scale(1.02);
 }
 
 /* ==============================
@@ -127,83 +122,52 @@ body::before {
 }
 
 /* ==============================
-   فیلدهای ورودی، انتخاب و دکمه (مرتب و وسط‌چین)
-   ============================== */
-/* ==============================
-   فیلدهای ورودی، انتخاب و دکمه RGB
+   فیلدهای ورودی، انتخاب و دکمه RGB و وسط‌چین
    ============================== */
 .glass-box input,
 .glass-box select,
 input[type="submit"] {
-  width: 115%; /* 💥 واقعاً بزرگتر از باکس برای جلوه بیشتر */
-  max-width: 420px; /* برای تنظیم در دسکتاپ */
-  padding: 18px 20px; /* پدینگ بیشتر برای ارتفاع */
-  margin: 15px auto;
+  width: 100%;
+  padding: 16px 20px;
+  margin: 12px 0;
   border: 1px solid rgba(255,255,255,0.3);
-  border-radius: 16px;
-  font-size: 18px; /* فونت درشت‌تر و واضح‌تر */
-  background-color: rgba(0,0,0,0.5);
+  border-radius: 14px;
+  font-size: 17px;
+  background-color: rgba(0,0,0,0.45);
   color: #fff;
   text-align: center;
   outline: none;
   display: block;
-  box-sizing: border-box;
   transition: all 0.3s ease-in-out;
-
-  /* 🌈 شادو RGB متحرک و قوی‌تر */
   animation: rgbGlow 5s linear infinite;
-  box-shadow: 0 0 25px rgba(255,0,0,0.6),
-              0 0 40px rgba(0,255,0,0.6),
-              0 0 55px rgba(0,0,255,0.6);
+  box-shadow: 0 0 20px rgba(255,0,0,0.6),
+              0 0 30px rgba(0,255,0,0.6),
+              0 0 40px rgba(0,0,255,0.6);
 }
 
 .glass-box input:focus,
 .glass-box select:focus,
 input[type="submit"]:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
   box-shadow: 0 0 35px rgba(255,0,0,0.9),
               0 0 50px rgba(0,255,0,0.9),
               0 0 65px rgba(0,0,255,0.9);
-}
-
-}
-
-/* دکمه ارسال RGB هماهنگ */
-input[type="submit"] {
-  font-weight: 700;
-  background: rgba(0,0,0,0.6);
-  border: 2px solid rgba(255,255,255,0.25);
-  color: #fff;
-  cursor: pointer;
-  animation: rgbGlow 5s linear infinite;
-}
-
-input[type="submit"]:hover {
-  transform: scale(1.05);
-  filter: brightness(1.3);
-}
-
-
-
-.glass-box input:focus,
-.glass-box select:focus {
-  border-color: #0ff;
-  box-shadow: 0 0 12px #0ff;
 }
 
 /* ==============================
    دکمه ارسال
    ============================== */
 input[type="submit"] {
-  background: linear-gradient(90deg, #0ff, #00aabb);
-  color: #000;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff inset;
+  background: rgba(0,0,0,0.6);
+  border: 2px solid rgba(255,255,255,0.25);
+  color: #fff;
+  animation: rgbGlow 5s linear infinite;
 }
 
 input[type="submit"]:hover {
-  transform: scale(1.05);
+  filter: brightness(1.3);
 }
 
 /* ==============================
@@ -243,16 +207,18 @@ input[type="submit"]:hover {
    ============================== */
 @media screen and (max-width: 600px) {
   .glass-box {
-    width: 90%;
-    padding: 18px 15px;
+    width: 95%;
+    padding: 20px 15px;
   }
 
   .glass-box h1 { font-size: 28px; }
+
   .glass-box input,
   .glass-box select,
   input[type="submit"] {
-    font-size: 13px;
-    padding: 10px;
-    width: 92%;
+    width: 100%;
+    font-size: 16px;
+    padding: 14px;
+    margin: 10px 0;
   }
 }
