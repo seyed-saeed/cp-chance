@@ -5,6 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <title>سی‌پی رایگان</title>
+  <style>
+    /* ==============================
+       عنوان مکانیکال (Typewriter) روی فرم
+       ============================== */
+    .glass-box h1 {
+      font-family: 'Courier New', Courier, monospace; /* فونت مکانیکال */
+      font-size: 40px; /* بزرگ‌تر */
+      margin-bottom: 25px;
+      letter-spacing: 2px;
+      color: #0ff;
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
+      text-align: center;
+
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 4px solid #0ff;
+      animation: typing 2s steps(14), blink 0.7s step-end infinite alternate;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 14ch; } /* تعداد کاراکترهای "سی‌پی رایگان" */
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+      100% { border-color: #0ff; }
+    }
+  </style>
 </head>
 <body>
 
@@ -44,57 +73,54 @@
   <div id="popup">تبریک! شما شرکت کردید!</div>
 
   <!-- جاوا اسکریپت برای بارش بلیت و popup -->
-<script>
-const paperContainer = document.querySelector('.falling-papers');
-const colors = ['#0ff','#ff0','#f0f','#0f0','#ff6600'];
+  <script>
+    const paperContainer = document.querySelector('.falling-papers');
+    const colors = ['#0ff','#ff0','#f0f','#0f0','#ff6600'];
 
-// تابع ایجاد بلیت
-function createPaper() {
-  const paper = document.createElement('div');
-  paper.classList.add('paper');
-  paper.style.left = Math.random() * window.innerWidth + 'px';
-  paper.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-  paperContainer.appendChild(paper);
+    function createPaper() {
+      const paper = document.createElement('div');
+      paper.classList.add('paper');
+      paper.style.left = Math.random() * window.innerWidth + 'px';
+      paper.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      paperContainer.appendChild(paper);
 
-  let top = -20;
-  const speed = 2 + Math.random() * 3;
-  const rotate = Math.random() * 360;
+      let top = -20;
+      const speed = 2 + Math.random() * 3;
+      const rotate = Math.random() * 360;
 
-  function fall() {
-    top += speed;
-    paper.style.top = top + 'px';
-    paper.style.transform = `rotate(${rotate + top*3}deg)`;
-    if(top < window.innerHeight) requestAnimationFrame(fall);
-    else paperContainer.removeChild(paper);
-  }
+      function fall() {
+        top += speed;
+        paper.style.top = top + 'px';
+        paper.style.transform = `rotate(${rotate + top*3}deg)`;
+        if(top < window.innerHeight) requestAnimationFrame(fall);
+        else paperContainer.removeChild(paper);
+      }
 
-  fall();
-}
+      fall();
+    }
 
-setInterval(createPaper, 200); // هر 0.2 ثانیه یک بلیت ایجاد می‌شود
+    setInterval(createPaper, 200); // هر 0.2 ثانیه یک بلیت ایجاد می‌شود
 
-// ================= Popup =================
-const form = document.getElementById('raffleForm');
-const popup = document.getElementById('popup');
+    // ================= Popup =================
+    const form = document.getElementById('raffleForm');
+    const popup = document.getElementById('popup');
 
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
 
-  // نمایش popup با fade-in
-  popup.style.display = 'block';
-  popup.style.opacity = '1';
+      // نمایش popup با fade-in
+      popup.style.display = 'block';
+      popup.style.opacity = '1';
 
-  // بعد از 5 ثانیه fade-out
-  setTimeout(() => {
-    popup.style.opacity = '0';
-    setTimeout(() => {
-      popup.style.display = 'none'; // مخفی کردن بعد از fade
-    }, 500); // مدت زمان fade-out مطابق CSS
-    form.reset();
-  }, 5000); // مدت زمان نمایش popup
-});
-</script>
-
-
+      // بعد از 5 ثانیه fade-out
+      setTimeout(() => {
+        popup.style.opacity = '0';
+        setTimeout(() => {
+          popup.style.display = 'none'; // مخفی کردن بعد از fade
+        }, 500); 
+        form.reset();
+      }, 5000); 
+    });
+  </script>
 </body>
 </html>
