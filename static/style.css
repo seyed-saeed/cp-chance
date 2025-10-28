@@ -1,105 +1,138 @@
-/* --- تنظیمات کلی --- */
+/* ==============================
+   تنظیمات کلی
+   ============================== */
 body {
   margin: 0;
   min-height: 100vh;
-  background: radial-gradient(circle at top left, #111, #000);
+  font-family: 'Orbitron', sans-serif; /* فونت گیمینگ */
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Vazir', sans-serif;
-  color: #fff;
   box-sizing: border-box;
   overflow: hidden;
+
+  /* تصویر زمینه گیمینگ */
+  background: url('images/cod-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
 }
 
-/* --- فرم شیشه‌ای مدرن --- */
+/* overlay مشکی برای خوانایی فرم */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 0;
+}
+
+/* ==============================
+   فرم شیشه‌ای گیمینگ
+   ============================== */
 .glass-box {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(16px);
+  position: relative;
+  z-index: 1;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(15px);
   border-radius: 25px;
   padding: 50px 55px;
   width: 420px;
   max-width: 90%;
   box-shadow:
-    0 0 30px rgba(255, 255, 255, 0.05),
-    inset 0 0 20px rgba(255, 255, 255, 0.02);
+    0 0 30px #0ff,
+    inset 0 0 20px rgba(0,255,255,0.2);
   transition: all 0.3s ease-in-out;
   animation: fadeIn 0.9s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .glass-box:hover {
+  transform: scale(1.02);
   box-shadow:
-    0 0 40px rgba(255, 255, 255, 0.15),
-    inset 0 0 25px rgba(255, 255, 255, 0.05);
-  transform: scale(1.01);
+    0 0 50px #0ff,
+    inset 0 0 30px rgba(0,255,255,0.4);
 }
 
-/* --- عنوان --- */
+/* ==============================
+   عنوان
+   ============================== */
 .glass-box h1 {
-  text-align: center;
   font-size: 36px;
   margin-bottom: 35px;
   letter-spacing: 1.5px;
-  color: #fff;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  text-align: center;
 }
 
-/* --- فیلدهای ورودی و انتخاب --- */
+/* ==============================
+   فیلدهای ورودی و انتخاب
+   ============================== */
 .glass-box input,
 .glass-box select {
   width: 100%;
   padding: 14px 18px;
   margin: 12px 0 25px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255,255,255,0.2);
   border-radius: 12px;
   font-size: 16px;
-  background-color: rgba(255, 255, 255, 0.08);
-  color: #fff;
+  background-color: rgba(0,0,0,0.4);
+  color: #0ff;
   outline: none;
-  transition: all 0.3s ease;
   box-sizing: border-box;
+  transition: all 0.3s ease;
 }
 
 .glass-box input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(0,255,255,0.5);
 }
 
 .glass-box input:focus,
 .glass-box select:focus {
-  border-color: #fff;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
-  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #0ff;
+  box-shadow: 0 0 10px #0ff;
+  background-color: rgba(0,0,0,0.55);
 }
 
-/* --- دکمه ارسال --- */
+/* ==============================
+   دکمه ارسال
+   ============================== */
 input[type="submit"] {
-  background: linear-gradient(90deg, #fff, #aaa);
+  background: linear-gradient(90deg, #0ff, #00aabb);
   color: #000;
-  border: none;
-  padding: 16px;
-  border-radius: 50px;
-  font-size: 18px;
   font-weight: 700;
+  font-size: 18px;
+  padding: 16px;
+  border: none;
+  border-radius: 50px;
   cursor: pointer;
   width: 100%;
+  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff inset;
   transition: all 0.3s ease;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 input[type="submit"]:hover {
-  background: linear-gradient(90deg, #ccc, #fff);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
   transform: scale(1.05);
+  box-shadow: 0 0 25px #0ff, 0 0 50px #0ff inset;
+  background: linear-gradient(90deg, #00aabb, #0ff);
 }
 
-/* --- پاپ‌آپ پیام --- */
+/* ==============================
+   پاپ‌آپ پیام
+   ============================== */
 #popup {
-  background: rgba(255, 255, 255, 0.95);
-  color: #000;
+  background: rgba(0,0,0,0.85);
+  color: #0ff;
   padding: 22px;
   border-radius: 18px;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 25px #0ff;
   position: fixed;
   top: 45%;
   left: 50%;
@@ -113,44 +146,47 @@ input[type="submit"]:hover {
   animation: fadeIn 0.7s ease;
 }
 
-/* --- انیمیشن ظاهر شدن --- */
+/* ==============================
+   انیمیشن ظاهر شدن
+   ============================== */
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
 }
 
-/* --- حالت موبایل --- */
+/* ==============================
+   موبایل فول‌اسکرین
+   ============================== */
 @media screen and (max-width: 600px) {
   html, body {
-    height: 100%;       /* اضافه شد */
-    margin: 0;          /* اطمینان از حذف مارجین */
-    padding: 0;         /* حذف padding */
+    height: 100%;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
-    align-items: stretch; /* تا فرم کل صفحه رو پر کند */
+    align-items: stretch;
   }
 
   .glass-box {
     width: 100%;
-    height: 100%;       /* کل ارتفاع صفحه */
+    height: 100%;
     border-radius: 0;
     box-shadow: none;
     padding: 40px 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* وسط عمودی فرم */
-    align-items: center;     /* وسط افقی فرم */
+    justify-content: center;
+    align-items: center;
   }
 
   .glass-box h1 {
     font-size: 28px;
     margin-bottom: 25px;
-    text-align: center;
   }
 
   .glass-box input,
   .glass-box select {
-    width: 90%;          /* کمی فاصله از لبه */
+    width: 90%;
     font-size: 16px;
     padding: 14px;
     margin-bottom: 18px;
@@ -163,4 +199,3 @@ input[type="submit"]:hover {
     border-radius: 12px;
   }
 }
-
