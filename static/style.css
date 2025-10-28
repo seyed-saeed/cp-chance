@@ -132,7 +132,7 @@ body::before {
 .glass-box input,
 .glass-box select,
 input[type="submit"] {
-  width: 90%;
+  width: 96%; /* 🔥 از 90% به 96% افزایش یافت */
   padding: 11px 15px;
   margin: 10px auto;
   border: 1px solid rgba(255,255,255,0.2);
@@ -146,6 +146,7 @@ input[type="submit"] {
   box-sizing: border-box;
   transition: all 0.3s ease;
 }
+
 
 .glass-box input:focus,
 .glass-box select:focus {
