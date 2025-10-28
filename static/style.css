@@ -4,7 +4,7 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: 'Orbitron', sans-serif; /* فونت گیمینگ */
+  font-family: 'Orbitron', sans-serif;
   color: #fff;
   display: flex;
   justify-content: center;
@@ -12,13 +12,11 @@ body {
   box-sizing: border-box;
   overflow: hidden;
 
-  /* تصویر زمینه گیمینگ */
   background: url('images/cod-bg.jpg') no-repeat center center fixed;
   background-size: cover;
   position: relative;
 }
 
-/* overlay مشکی برای خوانایی فرم */
 body::before {
   content: '';
   position: absolute;
@@ -30,7 +28,7 @@ body::before {
 }
 
 /* ==============================
-   فرم شیشه‌ای گیمینگ
+   فرم شیشه‌ای گیمینگ جمع‌تر
    ============================== */
 .glass-box {
   position: relative;
@@ -39,12 +37,12 @@ body::before {
   border: 1px solid rgba(255,255,255,0.2);
   backdrop-filter: blur(15px);
   border-radius: 25px;
-  padding: 50px 55px;
-  width: 420px;
+  padding: 35px 40px; /* کمتر شد */
+  width: 380px;       /* کمتر شد */
   max-width: 90%;
   box-shadow:
-    0 0 30px #0ff,
-    inset 0 0 20px rgba(0,255,255,0.2);
+    0 0 25px #0ff,
+    inset 0 0 15px rgba(0,255,255,0.2);
   transition: all 0.3s ease-in-out;
   animation: fadeIn 0.9s ease;
   display: flex;
@@ -54,18 +52,18 @@ body::before {
 }
 
 .glass-box:hover {
-  transform: scale(1.02);
+  transform: scale(1.01);
   box-shadow:
-    0 0 50px #0ff,
-    inset 0 0 30px rgba(0,255,255,0.4);
+    0 0 40px #0ff,
+    inset 0 0 25px rgba(0,255,255,0.4);
 }
 
 /* ==============================
    عنوان
    ============================== */
 .glass-box h1 {
-  font-size: 36px;
-  margin-bottom: 35px;
+  font-size: 32px; /* کمی کوچک شد */
+  margin-bottom: 25px; /* کمتر شد */
   letter-spacing: 1.5px;
   color: #0ff;
   text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
@@ -78,11 +76,11 @@ body::before {
 .glass-box input,
 .glass-box select {
   width: 100%;
-  padding: 14px 18px;
-  margin: 12px 0 25px;
+  padding: 12px 16px; /* کمتر شد */
+  margin: 10px 0 20px; /* کمتر شد */
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 12px;
-  font-size: 16px;
+  font-size: 15px; /* کمی کوچک‌تر شد */
   background-color: rgba(0,0,0,0.4);
   color: #0ff;
   outline: none;
@@ -90,37 +88,26 @@ body::before {
   transition: all 0.3s ease;
 }
 
-.glass-box input::placeholder {
-  color: rgba(0,255,255,0.5);
-}
-
-.glass-box input:focus,
-.glass-box select:focus {
-  border-color: #0ff;
-  box-shadow: 0 0 10px #0ff;
-  background-color: rgba(0,0,0,0.55);
-}
-
 /* ==============================
-   دکمه ارسال
+   دکمه ارسال جمع‌تر
    ============================== */
 input[type="submit"] {
   background: linear-gradient(90deg, #0ff, #00aabb);
   color: #000;
   font-weight: 700;
-  font-size: 18px;
-  padding: 16px;
+  font-size: 16px; /* کمی کوچک‌تر شد */
+  padding: 14px;   /* کمتر شد */
   border: none;
-  border-radius: 50px;
+  border-radius: 40px; /* کمی کمتر */
   cursor: pointer;
   width: 100%;
-  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff inset;
+  box-shadow: 0 0 12px #0ff, 0 0 25px #0ff inset;
   transition: all 0.3s ease;
 }
 
 input[type="submit"]:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px #0ff, 0 0 50px #0ff inset;
+  transform: scale(1.03);
+  box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset;
   background: linear-gradient(90deg, #00aabb, #0ff);
 }
 
@@ -130,9 +117,9 @@ input[type="submit"]:hover {
 #popup {
   background: rgba(0,0,0,0.85);
   color: #0ff;
-  padding: 22px;
-  border-radius: 18px;
-  box-shadow: 0 0 25px #0ff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #0ff;
   position: fixed;
   top: 45%;
   left: 50%;
@@ -140,8 +127,8 @@ input[type="submit"]:hover {
   z-index: 999;
   text-align: center;
   width: 90%;
-  max-width: 400px;
-  font-size: 17px;
+  max-width: 380px;
+  font-size: 16px;
   font-weight: bold;
   animation: fadeIn 0.7s ease;
 }
@@ -172,7 +159,7 @@ input[type="submit"]:hover {
     height: 100%;
     border-radius: 0;
     box-shadow: none;
-    padding: 40px 20px;
+    padding: 30px 15px; /* کمتر شد */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -180,22 +167,22 @@ input[type="submit"]:hover {
   }
 
   .glass-box h1 {
-    font-size: 28px;
-    margin-bottom: 25px;
+    font-size: 26px; /* کمی کوچک‌تر */
+    margin-bottom: 20px;
   }
 
   .glass-box input,
   .glass-box select {
     width: 90%;
-    font-size: 16px;
-    padding: 14px;
-    margin-bottom: 18px;
+    font-size: 15px;
+    padding: 12px;
+    margin-bottom: 15px;
   }
 
   input[type="submit"] {
     width: 90%;
-    font-size: 16px;
-    padding: 14px;
+    font-size: 15px;
+    padding: 12px;
     border-radius: 12px;
   }
 }
