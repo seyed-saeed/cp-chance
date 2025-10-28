@@ -12,7 +12,6 @@ body {
   box-sizing: border-box;
   overflow: hidden;
   position: relative;
-
   background: url('images/cod-bg.jpg') no-repeat center center fixed;
   background-size: cover;
 }
@@ -53,18 +52,17 @@ body::before {
   100% { transform: translateY(100vh) rotate(360deg); }
 }
 
-/* رنگ و موقعیت متفاوت برای هر بلیت */
 .falling-papers div:nth-child(1) { left: 5%; animation-duration: 3s; background: #0ff; }
 .falling-papers div:nth-child(2) { left: 15%; animation-duration: 4s; background: #ff0; }
 .falling-papers div:nth-child(3) { left: 25%; animation-duration: 5s; background: #f0f; }
-.falling-papers div:nth-child(4) { left: 35%; animation-duration: 3.5s; background: #0f0; } /* سبز ثابت */
+.falling-papers div:nth-child(4) { left: 35%; animation-duration: 3.5s; background: #0f0; }
 .falling-papers div:nth-child(5) { left: 50%; animation-duration: 4.5s; background: #ff6600; }
 .falling-papers div:nth-child(6) { left: 60%; animation-duration: 3.2s; background: #0ff; }
 .falling-papers div:nth-child(7) { left: 75%; animation-duration: 4.2s; background: #ff0; }
 .falling-papers div:nth-child(8) { left: 85%; animation-duration: 5s; background: #f0f; }
 
 /* ==============================
-   انیمیشن RGB متحرک برای glow و رنگ سبز
+   انیمیشن RGB متحرک
    ============================== */
 @keyframes rgbGlow {
   0%   { color: rgb(0,255,0); box-shadow: 0 0 10px rgb(0,255,0), 0 0 20px rgb(0,255,0); border-color: rgb(0,255,0); }
@@ -83,14 +81,14 @@ body::before {
 .glass-box {
   position: relative;
   z-index: 1;
-  background: rgba(0,0,0,0.45);
-  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.15);
   backdrop-filter: blur(15px);
   border-radius: 25px;
-  padding: 35px 40px;
-  width: 380px;
-  max-width: 90%;
-  box-shadow: 0 0 25px #0ff, inset 0 0 15px rgba(0,255,0,0.2);
+  padding: 25px 30px; /* پدینگ کمتر برای کوچک‌تر شدن */
+  width: 340px;
+  max-width: 85%;
+  box-shadow: 0 0 25px #0ff, inset 0 0 10px rgba(0,255,0,0.2);
   transition: all 0.3s ease-in-out;
   animation: fadeIn 0.9s ease, rgbGlow 5s linear infinite;
   display: flex;
@@ -100,31 +98,27 @@ body::before {
 }
 
 .glass-box:hover {
-  transform: scale(1.01);
-  box-shadow: 0 0 40px #0ff, inset 0 0 25px rgba(0,255,0,0.4);
+  transform: scale(1.02);
 }
 
 /* ==============================
    عنوان مکانیکال (Typewriter)
    ============================== */
 .glass-box h1 {
-  font-family: 'Courier New', Courier, monospace; /* فونت مکانیکال */
-  font-size: 40px; /* بزرگ‌تر */
-  margin-bottom: 25px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 36px;
+  margin-bottom: 20px;
   letter-spacing: 2px;
-  color: rgb(0,255,0);
-  text-shadow: 0 0 10px rgb(0,255,0), 0 0 20px rgb(0,255,0), 0 0 30px rgb(0,255,0);
   text-align: center;
-
   overflow: hidden;
   white-space: nowrap;
-  border-right: 4px solid rgb(0,255,0);
+  border-right: 3px solid rgb(0,255,0);
   animation: typing 2s steps(14), blink 0.7s step-end infinite alternate, rgbGlow 5s linear infinite;
 }
 
 @keyframes typing {
   from { width: 0; }
-  to { width: 14ch; } /* تعداد کاراکترهای "سی‌پی رایگان" */
+  to { width: 14ch; }
 }
 
 @keyframes blink {
@@ -138,22 +132,21 @@ body::before {
 .glass-box input,
 .glass-box select {
   width: 100%;
-  padding: 12px 16px;
-  margin: 10px 0 20px;
+  padding: 10px 14px;
+  margin: 8px 0 16px;
   border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 12px;
-  font-size: 15px;
+  border-radius: 10px;
+  font-size: 14px;
   background-color: rgba(0,0,0,0.4);
   color: #0ff;
   outline: none;
-  box-sizing: border-box;
   transition: all 0.3s ease;
 }
 
 .glass-box input:focus,
 .glass-box select:focus {
   border-color: #0ff;
-  box-shadow: 0 0 15px #0ff;
+  box-shadow: 0 0 12px #0ff;
 }
 
 /* ==============================
@@ -163,20 +156,18 @@ input[type="submit"] {
   background: linear-gradient(90deg, #0ff, #00aabb);
   color: #000;
   font-weight: 700;
-  font-size: 16px;
-  padding: 14px;
+  font-size: 15px;
+  padding: 12px;
   border: none;
-  border-radius: 40px;
+  border-radius: 35px;
   cursor: pointer;
   width: 100%;
-  box-shadow: 0 0 12px #0ff, 0 0 25px #0ff inset;
+  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff inset;
   transition: all 0.3s ease;
 }
 
 input[type="submit"]:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 25px #0ff, 0 0 50px #0ff inset;
-  background: linear-gradient(90deg, #00aabb, #0ff);
 }
 
 /* ==============================
@@ -195,12 +186,11 @@ input[type="submit"]:hover {
   z-index: 999;
   text-align: center;
   width: 90%;
-  max-width: 380px;
-  font-size: 16px;
+  max-width: 350px;
+  font-size: 15px;
   font-weight: bold;
-  
-  display: none;       /* مخفی به صورت پیش‌فرض */
-  opacity: 0;          /* برای انیمیشن fade */
+  display: none;
+  opacity: 0;
   transition: opacity 0.5s ease;
 }
 
@@ -217,13 +207,15 @@ input[type="submit"]:hover {
    ============================== */
 @media screen and (max-width: 600px) {
   .glass-box {
-    width: 95%;
-    max-width: 400px;
-    padding: 25px 20px;
+    width: 90%;
+    padding: 18px 15px;
   }
 
-  .glass-box h1 { font-size: 32px; }
+  .glass-box h1 { font-size: 28px; }
   .glass-box input,
   .glass-box select,
-  input[type="submit"] { width: 90%; font-size: 15px; }
+  input[type="submit"] {
+    font-size: 13px;
+    padding: 10px;
+  }
 }
