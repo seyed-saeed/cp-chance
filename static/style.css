@@ -57,11 +57,25 @@ body::before {
 .falling-papers div:nth-child(1) { left: 5%; animation-duration: 3s; background: #0ff; }
 .falling-papers div:nth-child(2) { left: 15%; animation-duration: 4s; background: #ff0; }
 .falling-papers div:nth-child(3) { left: 25%; animation-duration: 5s; background: #f0f; }
-.falling-papers div:nth-child(4) { left: 35%; animation-duration: 3.5s; background: #0f0; }
+.falling-papers div:nth-child(4) { left: 35%; animation-duration: 3.5s; background: #0f0; } /* سبز ثابت */
 .falling-papers div:nth-child(5) { left: 50%; animation-duration: 4.5s; background: #ff6600; }
 .falling-papers div:nth-child(6) { left: 60%; animation-duration: 3.2s; background: #0ff; }
 .falling-papers div:nth-child(7) { left: 75%; animation-duration: 4.2s; background: #ff0; }
 .falling-papers div:nth-child(8) { left: 85%; animation-duration: 5s; background: #f0f; }
+
+/* ==============================
+   انیمیشن RGB متحرک برای glow و رنگ سبز
+   ============================== */
+@keyframes rgbGlow {
+  0%   { color: rgb(0,255,0); box-shadow: 0 0 10px rgb(0,255,0), 0 0 20px rgb(0,255,0); border-color: rgb(0,255,0); }
+  14%  { color: rgb(255,0,0); box-shadow: 0 0 10px rgb(255,0,0), 0 0 20px rgb(255,0,0); border-color: rgb(255,0,0); }
+  28%  { color: rgb(255,127,0); box-shadow: 0 0 10px rgb(255,127,0), 0 0 20px rgb(255,127,0); border-color: rgb(255,127,0); }
+  42%  { color: rgb(255,255,0); box-shadow: 0 0 10px rgb(255,255,0), 0 0 20px rgb(255,255,0); border-color: rgb(255,255,0); }
+  57%  { color: rgb(0,0,255); box-shadow: 0 0 10px rgb(0,0,255), 0 0 20px rgb(0,0,255); border-color: rgb(0,0,255); }
+  71%  { color: rgb(75,0,130); box-shadow: 0 0 10px rgb(75,0,130), 0 0 20px rgb(75,0,130); border-color: rgb(75,0,130); }
+  85%  { color: rgb(148,0,211); box-shadow: 0 0 10px rgb(148,0,211), 0 0 20px rgb(148,0,211); border-color: rgb(148,0,211); }
+  100% { color: rgb(0,255,0); box-shadow: 0 0 10px rgb(0,255,0), 0 0 20px rgb(0,255,0); border-color: rgb(0,255,0); }
+}
 
 /* ==============================
    فرم شیشه‌ای گیمینگ
@@ -76,11 +90,9 @@ body::before {
   padding: 35px 40px;
   width: 380px;
   max-width: 90%;
-  box-shadow:
-    0 0 25px #0ff,
-    inset 0 0 15px rgba(0,255,255,0.2);
+  box-shadow: 0 0 25px #0ff, inset 0 0 15px rgba(0,255,0,0.2);
   transition: all 0.3s ease-in-out;
-  animation: fadeIn 0.9s ease;
+  animation: fadeIn 0.9s ease, rgbGlow 5s linear infinite;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -89,9 +101,7 @@ body::before {
 
 .glass-box:hover {
   transform: scale(1.01);
-  box-shadow:
-    0 0 40px #0ff,
-    inset 0 0 25px rgba(0,255,255,0.4);
+  box-shadow: 0 0 40px #0ff, inset 0 0 25px rgba(0,255,0,0.4);
 }
 
 /* ==============================
@@ -102,14 +112,14 @@ body::before {
   font-size: 40px; /* بزرگ‌تر */
   margin-bottom: 25px;
   letter-spacing: 2px;
-  color: #0ff;
-  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
+  color: rgb(0,255,0);
+  text-shadow: 0 0 10px rgb(0,255,0), 0 0 20px rgb(0,255,0), 0 0 30px rgb(0,255,0);
   text-align: center;
 
   overflow: hidden;
   white-space: nowrap;
-  border-right: 4px solid #0ff;
-  animation: typing 2s steps(14), blink 0.7s step-end infinite alternate;
+  border-right: 4px solid rgb(0,255,0);
+  animation: typing 2s steps(14), blink 0.7s step-end infinite alternate, rgbGlow 5s linear infinite;
 }
 
 @keyframes typing {
@@ -119,7 +129,7 @@ body::before {
 
 @keyframes blink {
   50% { border-color: transparent; }
-  100% { border-color: #0ff; }
+  100% { border-color: rgb(0,255,0); }
 }
 
 /* ==============================
