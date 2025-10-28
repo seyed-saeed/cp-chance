@@ -14,9 +14,9 @@
   <!-- فرم شیشه‌ای -->
   <div class="glass-box">
     <h1>سی‌پی رایگان</h1>
-    <form action="/submit" method="POST">
+    <form id="raffleForm" action="/submit" method="POST">
       <input type="text" name="fullname" placeholder="نام و نام خانوادگی" required minlength="7" maxlength="35">
-
+      
       <input 
         type="tel" 
         name="phone" 
@@ -41,17 +41,43 @@
   </div>
 
   <!-- popup پیام -->
-  {% if message %}
-  <div id="popup">
-    <p>{{ message }}</p>
-  </div>
+  <div id="popup">تبریک! شما شرکت کردید!</div>
+
+  <!-- جاوا اسکریپت برای بارش بلیت و popup -->
   <script>
-    setTimeout(function() {
-      document.getElementById('popup').style.display = 'none';
-      document.querySelector('form').reset();
-    }, 8000);
+    const paperContainer = document.querySelector('.falling-papers');
+    const colors = ['#0ff','#ff0','#f0f','#0f0','#ff6600'];
+
+    function createPaper() {
+      const paper = document.createElement('div');
+      paper.classList.add('paper');
+      paper.style.left = Math.random() * window.innerWidth + 'px';
+      paper.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+      paperContainer.appendChild(paper);
+
+      let top = -20;
+      const speed = 2 + Math.random()*3;
+      const rotate = Math.random()*360;
+      function fall() {
+        top += speed;
+        paper.style.top = top + 'px';
+        paper.style.transform = `rotate(${rotate + top*3}deg)`;
+        if(top < window.innerHeight) requestAnimationFrame(fall);
+        else paperContainer.removeChild(paper);
+      }
+      fall();
+    }
+
+    setInterval(createPaper, 200); // هر 0.2 ثانیه یک بلیت ایجاد می‌شود
+
+    const form = document.getElementById('raffleForm');
+    const popup = document.getElementById('popup');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      popup.style.display = 'block';
+      setTimeout(()=>{ popup.style.display='none'; form.reset(); }, 5000);
+    });
   </script>
-  {% endif %}
 
 </body>
 </html>
