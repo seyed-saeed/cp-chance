@@ -135,14 +135,14 @@ body::before {
 .glass-box input,
 .glass-box select,
 input[type="submit"] {
-  width: 100%; /* 🌈 تمام عرض باکس */
-  max-width: 330px; /* برای حفظ نظم در موبایل */
-  padding: 14px 18px; /* کمی بزرگ‌تر برای حس لوکس‌تر */
-  margin: 12px auto;
-  border: 1px solid rgba(255,255,255,0.25);
-  border-radius: 14px;
-  font-size: 16px;
-  background-color: rgba(0,0,0,0.45);
+  width: 115%; /* 💥 واقعاً بزرگتر از باکس برای جلوه بیشتر */
+  max-width: 420px; /* برای تنظیم در دسکتاپ */
+  padding: 18px 20px; /* پدینگ بیشتر برای ارتفاع */
+  margin: 15px auto;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 16px;
+  font-size: 18px; /* فونت درشت‌تر و واضح‌تر */
+  background-color: rgba(0,0,0,0.5);
   color: #fff;
   text-align: center;
   outline: none;
@@ -150,21 +150,22 @@ input[type="submit"] {
   box-sizing: border-box;
   transition: all 0.3s ease-in-out;
 
-  /* ✨ افکت RGB متحرک واقعی‌تر */
+  /* 🌈 شادو RGB متحرک و قوی‌تر */
   animation: rgbGlow 5s linear infinite;
-  box-shadow: 0 0 15px rgba(255,0,0,0.5),
-              0 0 25px rgba(0,255,0,0.5),
-              0 0 35px rgba(0,0,255,0.5);
+  box-shadow: 0 0 25px rgba(255,0,0,0.6),
+              0 0 40px rgba(0,255,0,0.6),
+              0 0 55px rgba(0,0,255,0.6);
 }
 
 .glass-box input:focus,
 .glass-box select:focus,
 input[type="submit"]:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 25px rgba(255,0,0,0.8),
-              0 0 35px rgba(0,255,0,0.8),
-              0 0 45px rgba(0,0,255,0.8);
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(255,0,0,0.9),
+              0 0 50px rgba(0,255,0,0.9),
+              0 0 65px rgba(0,0,255,0.9);
 }
+
 }
 
 /* دکمه ارسال RGB هماهنگ */
