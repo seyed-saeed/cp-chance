@@ -129,12 +129,15 @@ body::before {
 /* ==============================
    فیلدهای ورودی، انتخاب و دکمه مرتب و وسط‌چین با RGB
    ============================== */
+/* ==============================
+   فیلدهای ورودی، انتخاب و دکمه با RGB glow
+   ============================== */
 .glass-box input,
 .glass-box select,
 input[type="submit"] {
-  width: 95%; /* ⚡ حداکثر 95% باکس برای هماهنگی */
-  max-width: 360px; /* تنظیم روی دسکتاپ */
-  padding: 16px 18px; /* ارتفاع مناسب */
+  width: 100%; /* تمام عرض باکس */
+  max-width: 330px; /* تنظیم روی دسکتاپ */
+  padding: 14px 18px; /* کمی بزرگ‌تر برای حس لوکس‌تر */
   margin: 12px auto;
   border: 1px solid rgba(255,255,255,0.25);
   border-radius: 14px;
@@ -146,6 +149,8 @@ input[type="submit"] {
   display: block;
   box-sizing: border-box;
   transition: all 0.3s ease-in-out;
+
+  /* RGB متحرک */
   animation: rgbGlow 5s linear infinite;
   box-shadow: 0 0 15px rgba(255,0,0,0.5),
               0 0 25px rgba(0,255,0,0.5),
@@ -155,11 +160,20 @@ input[type="submit"] {
 .glass-box input:focus,
 .glass-box select:focus,
 input[type="submit"]:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
   box-shadow: 0 0 25px rgba(255,0,0,0.8),
               0 0 35px rgba(0,255,0,0.8),
               0 0 45px rgba(0,0,255,0.8);
 }
+
+/* دکمه ارسال */
+input[type="submit"] {
+  font-weight: 700;
+  background: linear-gradient(90deg, #0ff, #00aabb);
+  border: 2px solid rgba(255,255,255,0.25);
+  cursor: pointer;
+}
+
 
 /* دکمه ارسال */
 input[type="submit"] {
