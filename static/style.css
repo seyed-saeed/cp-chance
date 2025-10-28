@@ -150,26 +150,25 @@ input[type="submit"]:hover {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center; /* وسط افقی */
-    align-items: center;     /* وسط عمودی */
+    justify-content: center; /* مرکز افقی */
+    align-items: center;     /* مرکز عمودی */
     background: url('images/cod-bg.jpg') no-repeat center center fixed;
     background-size: cover;
   }
 
   .glass-box {
-    width: 95%;            /* کمی فاصله از لبه‌ها */
-    max-width: 400px;      
-    height: 90%;           /* کمی کمتر از کل صفحه برای دیده شدن border */
+    width: 95%;             /* فاصله از لبه‌های صفحه */
+    max-width: 400px;
+    height: 90%;            /* فاصله از بالا و پایین */
     border-radius: 20px; 
-    padding: 30px 20px;
+    padding: 25px 20px;     /* فاصله داخلی مناسب */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* وسط عمودی فیلدها */
+    align-items: center;     /* وسط افقی فیلدها */
 
-    /* شیشه‌ای با border واضح */
     background: rgba(0,0,0,0.45);
-    border: 2px solid rgba(0,255,255,0.8); /* لبه واضح و نئون */
+    border: 2px solid rgba(0,255,255,0.9); /* لبه‌ها کاملاً دیده می‌شوند */
     box-shadow: 0 0 25px #0ff, inset 0 0 20px rgba(0,255,255,0.2);
   }
 
@@ -178,6 +177,7 @@ input[type="submit"]:hover {
     margin-bottom: 20px;
     color: #0ff;
     text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    text-align: center;
   }
 
   .glass-box input,
@@ -187,8 +187,10 @@ input[type="submit"]:hover {
     padding: 12px;
     margin-bottom: 15px;
     border: 1px solid rgba(0,255,255,0.6);
+    border-radius: 10px;
     background-color: rgba(0,0,0,0.4);
     color: #0ff;
+    text-align: center; /* متن دقیق وسط */
   }
 
   input[type="submit"] {
@@ -199,5 +201,6 @@ input[type="submit"]:hover {
     background: linear-gradient(90deg, #0ff, #00aabb);
     color: #000;
     box-shadow: 0 0 15px #0ff, 0 0 25px #0ff inset;
+    text-align: center;
   }
 }
