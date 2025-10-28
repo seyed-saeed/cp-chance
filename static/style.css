@@ -1,5 +1,5 @@
 /* ==============================
-   تنظیمات کلی با خطوط رنگی متحرک
+   تنظیمات کلی با پس‌زمینه و overlay
    ============================== */
 body {
   margin: 0;
@@ -13,7 +13,6 @@ body {
   overflow: hidden;
   position: relative;
 
-  /* پس‌زمینه اصلی با تصویر و overlay متحرک */
   background: url('images/cod-bg.jpg') no-repeat center center fixed;
   background-size: cover;
 }
@@ -28,29 +27,41 @@ body::before {
   z-index: 0;
 }
 
-/* خطوط رنگی متحرک */
-body::after {
-  content: '';
+/* ==============================
+   بارش بلیت‌های قرعه‌کشی
+   ============================== */
+.falling-papers {
   position: absolute;
-  top: -100%;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
-  height: 300%;
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(0,255,255,0.2) 0px,
-    rgba(0,255,255,0.2) 2px,
-    transparent 2px,
-    transparent 10px
-  );
-  animation: moveLines 6s linear infinite;
+  height: 100%;
   z-index: 0;
+  overflow: hidden;
 }
 
-@keyframes moveLines {
-  0% { top: -100%; }
-  100% { top: 0; }
+.falling-papers div {
+  position: absolute;
+  width: 15px;
+  height: 20px;
+  border-radius: 3px;
+  opacity: 0.9;
+  animation: fall 4s linear infinite;
 }
+
+@keyframes fall {
+  0% { transform: translateY(-30px) rotate(0deg); }
+  100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+/* رنگ و موقعیت متفاوت برای هر بلیت */
+.falling-papers div:nth-child(1) { left: 5%; animation-duration: 3s; background: #0ff; }
+.falling-papers div:nth-child(2) { left: 15%; animation-duration: 4s; background: #ff0; }
+.falling-papers div:nth-child(3) { left: 25%; animation-duration: 5s; background: #f0f; }
+.falling-papers div:nth-child(4) { left: 35%; animation-duration: 3.5s; background: #0f0; }
+.falling-papers div:nth-child(5) { left: 50%; animation-duration: 4.5s; background: #ff6600; }
+.falling-papers div:nth-child(6) { left: 60%; animation-duration: 3.2s; background: #0ff; }
+.falling-papers div:nth-child(7) { left: 75%; animation-duration: 4.2s; background: #ff0; }
+.falling-papers div:nth-child(8) { left: 85%; animation-duration: 5s; background: #f0f; }
 
 /* ==============================
    فرم شیشه‌ای گیمینگ
